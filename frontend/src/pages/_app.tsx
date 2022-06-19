@@ -1,4 +1,8 @@
-import '@/styles/index.css'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import '@/styles/index.scss'
+
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 
