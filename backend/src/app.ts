@@ -4,9 +4,12 @@ import cors from 'cors'
 import express from 'express'
 import helmet from 'helmet'
 import Debug from 'debug'
+import passport from 'passport'
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
 
+import AccountManager from '@/domains/account/manager'
+import { localStrategy } from '@/domains/account/auth-strategies'
 import Mongo, { mongoConnectionString } from '@/lib/mongo'
 
 const debug = Debug('app:main')
@@ -22,6 +25,10 @@ app.use(helmet())
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+passport.use(localStrategy)
+passport.serializeUser(AccountManager.serializeUser())
+passport.deserializeUser(AccountManager.deserializeUser())
 
 app.use(
   session({
@@ -44,6 +51,9 @@ app.use(
     },
   })
 )
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.get('/health', (_, res) => res.json({ status: 'ok' }))
 
