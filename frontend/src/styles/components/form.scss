@@ -1,0 +1,31 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  .input-wrapper {
+    border-radius: 0.5rem;
+  }
+
+  &-group {
+    & + & {
+      margin-top: 1.6rem;
+    }
+  }
+
+  &-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+
+    @media screen and (max-width: $sm) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+  }
+
+  &-title {
+    font-size: 2.4rem;
+    line-height: 4rem;
+    font-weight: 500;
+  }
+}
