@@ -12,6 +12,7 @@ import accountRouter from '@/domains/account/router'
 import AccountManager from '@/domains/account/manager'
 import { localStrategy } from '@/domains/account/auth-strategies'
 import Mongo, { mongoConnectionString } from '@/lib/mongo'
+import { ExtentableErrorExpressHandler } from '@/lib/errors'
 
 const debug = Debug('app:main')
 
@@ -58,6 +59,8 @@ app.use(passport.session())
 
 app.get('/health', (_, res) => res.json({ status: 'ok' }))
 app.use('/account', accountRouter)
+
+app.use(ExtentableErrorExpressHandler())
 
 app.listen(PORT, () => {
   debug(`=================================`)
