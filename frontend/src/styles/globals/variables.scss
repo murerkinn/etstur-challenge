@@ -1,0 +1,35 @@
+// Breakpoints
+$xs: 568px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+$xl: 1600px;
+
+:root {
+  --header-height: 7.2rem;
+
+  --white: #fff;
+  --black: #000;
+  --black-80: rgba(0, 0, 0, 0.8);
+  --black-60: rgba(0, 0, 0, 0.6);
+  --black-40: rgba(0, 0, 0, 0.4);
+  --black-20: rgba(0, 0, 0, 0.2);
+  --black-10: rgba(0, 0, 0, 0.1);
+  --black-5: rgba(0, 0, 0, 0.05);
+  --danger: #fc394d;
+  --warning: #f39237;
+  --success: #3cb989;
+  --light: #f3f8fc;
+  --info: #05b6ec;
+  --dark-blue: #0c2e52;
+  --purple: #a961ec;
+  --primary: #6a62ff;
+
+  // Animations
+  --animation-duration: 0.15s;
+  --transition-time: 0.15s;
+
+  // Components
+  --input-border-radius: 0.5rem;
+  --input-error-bg-color: #ff5e000d;
+}
