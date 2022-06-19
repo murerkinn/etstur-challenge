@@ -1,0 +1,146 @@
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  padding: 1rem 2rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  color: var(--black-80);
+  font-weight: 600;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-time) ease;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  &-primary {
+    color: var(--white);
+    background-color: var(--primary);
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    &:active {
+      filter: brightness(1.1);
+    }
+  }
+
+  &-secondary {
+    font-weight: 400;
+    border: 0.5px solid var(--black-40);
+
+    &:hover {
+      color: var(--black);
+      border-color: var(--black-80);
+    }
+
+    &:active {
+      color: var(--black-60);
+      border-color: var(--black-60);
+    }
+
+    &.invert {
+      border: 1px solid var(--white);
+      color: var(--white);
+    }
+  }
+
+  &-text {
+    border: none;
+
+    &:hover {
+      color: var(--black);
+    }
+
+    &:active {
+      color: var(--black-60);
+    }
+  }
+
+  &-link {
+    color: var(--primary);
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  &-small {
+    padding: 0.5rem 1.5rem;
+  }
+
+  &-medium {
+    padding: 1.5rem 2.5rem;
+  }
+
+  &-large {
+    padding: 2rem 3rem;
+  }
+
+  &-block {
+    width: 100%;
+  }
+
+  &-icon-only {
+    padding: 1rem;
+  }
+
+  &-loading {
+    position: relative;
+    pointer-events: none;
+    color: transparent;
+
+    & > * {
+      visibility: hidden;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1.6rem;
+      height: 1.6rem;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      border: 2px solid transparent;
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: button-loading-spinner 1s ease infinite;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--white);
+    background-color: var(--neutral-40);
+
+    &.btn-secondary {
+      background-color: var(--black-5);
+      color: var(--black-40);
+    }
+  }
+
+  &-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
