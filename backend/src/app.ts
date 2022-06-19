@@ -4,7 +4,10 @@ import cors from 'cors'
 import express from 'express'
 import helmet from 'helmet'
 import Debug from 'debug'
-import Mongo from '@/lib/mongo'
+import session from 'express-session'
+import MongoStore from 'connect-mongo'
+
+import Mongo, { mongoConnectionString } from '@/lib/mongo'
 
 const debug = Debug('app:main')
 
@@ -20,7 +23,29 @@ app.use(helmet())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/health', (req, res) => res.json({ status: 'ok' }))
+app.use(
+  session({
+    store: MongoStore.create({
+      mongoUrl: mongoConnectionString,
+      stringify: false,
+    }),
+    saveUninitialized: false,
+    secret: process.env.SESSION_SECRET || 'thisisasupersecuresecretsecret',
+    resave: false,
+    cookie: {
+      domain:
+        process.env.NODE_ENV === 'production'
+          ? 'api.myroom24.com'
+          : process.env.COOKIE_DOMAIN,
+      maxAge: 14 * 24 * 60 * 60 * 1000,
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : true,
+      secure: process.env.NODE_ENV === 'production',
+      httpOnly: true,
+    },
+  })
+)
+
+app.get('/health', (_, res) => res.json({ status: 'ok' }))
 
 app.listen(PORT, () => {
   debug(`=================================`)
