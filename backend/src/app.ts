@@ -8,6 +8,7 @@ import passport from 'passport'
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
 
+import accountRouter from '@/domains/account/router'
 import AccountManager from '@/domains/account/manager'
 import { localStrategy } from '@/domains/account/auth-strategies'
 import Mongo, { mongoConnectionString } from '@/lib/mongo'
@@ -56,6 +57,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.get('/health', (_, res) => res.json({ status: 'ok' }))
+app.use('/account', accountRouter)
 
 app.listen(PORT, () => {
   debug(`=================================`)
