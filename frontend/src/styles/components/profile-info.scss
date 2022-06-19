@@ -1,0 +1,15 @@
+.proifle-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &-content {
+    span {
+      display: block;
+
+      &:first-of-type {
+        margin-bottom: 0.4rem;
+      }
+    }
+  }
+}
