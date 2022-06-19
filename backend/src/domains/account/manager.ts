@@ -1,9 +1,33 @@
 import Debug from 'debug'
 
 import User from './models/user'
+import Partner, { PartnerRaw } from './models/partner'
+import Guest, { GuestRaw } from './models/guest'
 import { NotFoundError, UnauthorizedRequestError } from '@/lib/errors'
 
 const debug = Debug('app:managers:account')
+
+const createGuest = async (guestData: GuestRaw) => {
+  const guest = await Guest.create({
+    email: guestData.email,
+    hash: await User.calculateHash(guestData.password),
+    firstName: guestData.firstName,
+    lastName: guestData.lastName,
+  })
+
+  return guest
+}
+
+const createPartner = async (partnerData: PartnerRaw) => {
+  const partner = await Partner.create({
+    email: partnerData.email,
+    hash: await User.calculateHash(partnerData.password),
+    firstName: partnerData.firstName,
+    lastName: partnerData.lastName,
+  })
+
+  return partner
+}
 
 const serializeUser = () => {
   return function (user: any, cb: any) {
@@ -44,6 +68,8 @@ const authenticate = async (email: string, password: string) => {
 }
 
 const AccountManager = {
+  createGuest,
+  createPartner,
   serializeUser,
   deserializeUser,
   authenticate,
