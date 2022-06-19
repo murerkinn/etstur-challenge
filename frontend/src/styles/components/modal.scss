@@ -1,0 +1,76 @@
+.modal {
+  padding: 2rem;
+  max-width: 60rem;
+  width: 90%;
+  border-radius: 1rem;
+  background-color: var(--white);
+  transition: var(--animation-duration);
+  position: relative;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &-title {
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--black-20);
+    transition: var(--animation-duration);
+    z-index: 10001;
+  }
+
+  &-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10001;
+  }
+}
+
+.ReactModal {
+  &__Overlay {
+    opacity: 0;
+
+    &--after-open {
+      opacity: 1;
+    }
+
+    &--before-close {
+      opacity: 0;
+    }
+  }
+
+  &__Content {
+    transform: translateY(80px);
+    opacity: 0;
+
+    &--after-open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    &--before-close {
+      transform: translateY(80px);
+      opacity: 0;
+    }
+  }
+
+  &__Body--open {
+    overflow: hidden;
+  }
+}
