@@ -5,7 +5,7 @@ import express from 'express'
 import helmet from 'helmet'
 import Debug from 'debug'
 
-const debug = Debug('app')
+const debug = Debug('app:main')
 
 const PORT = process.env.PORT || '4000'
 
