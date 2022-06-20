@@ -10,6 +10,8 @@
   "author": "Murat Erkin Cicek <murerkinn@gmail.com>",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "casbin": "^5.15.1",
+    "casbin-mongoose-adapter": "^5.1.0",
     "casual": "^1.6.2",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
