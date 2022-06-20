@@ -13,6 +13,7 @@ import AccountManager from '@/domains/account/manager'
 import { localStrategy } from '@/domains/account/auth-strategies'
 import Mongo, { mongoConnectionString } from '@/lib/mongo'
 import { ExtentableErrorExpressHandler } from '@/lib/errors'
+import AclManager from './domains/acl'
 
 const debug = Debug('app:main')
 
@@ -21,6 +22,7 @@ const PORT = process.env.PORT || '4000'
 const app = express()
 
 Mongo.init()
+AclManager.init()
 
 app.use(
   cors({
