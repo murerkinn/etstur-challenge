@@ -1,8 +1,10 @@
-import { Schema } from 'mongoose'
+import { Schema, Document } from 'mongoose'
 import User, { UserRaw } from './user'
 
 export interface PartnerRaw extends UserRaw {}
 
-const schema = new Schema({}, { timestamps: true })
+export interface PartnerDocument extends Document, PartnerRaw {}
 
-export default User.discriminator('Partner', schema)
+const schema = new Schema<PartnerDocument>({}, { timestamps: true })
+
+export default User.discriminator<PartnerDocument>('Partner', schema)
