@@ -12,6 +12,7 @@ services:
       dockerfile: Dockerfile.local
     environment:
       - MONGO_CONNECTION_STRING=mongodb://mongo:27017/evently
+      - HTTP_CORS_CREDENTIALS=true
     volumes:
       - ./backend/src:/app/src
     expose:

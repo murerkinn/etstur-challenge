@@ -22,8 +22,15 @@ const app = express()
 
 Mongo.init()
 
-app.use(cors())
+app.use(
+  cors({
+    origin: true,
+    credentials: Boolean(process.env.HTTP_CORS_CREDENTIALS),
+  })
+)
 app.use(helmet())
+
+app.set('trust proxy', 1)
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
