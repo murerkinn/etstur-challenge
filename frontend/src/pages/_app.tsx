@@ -9,6 +9,8 @@ import { Provider } from 'react-redux'
 import store from '@/app/store'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
+import LoginModal from '@/modules/auth/components/login-modal'
+import RegisterModal from '@/modules/auth/components/register-modal'
 import SearchBar from '@/modules/search/components/search-bar'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -16,10 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <Header />
       <SearchBar />
-      <main className="container">
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
       <Footer />
+
+      <LoginModal />
+      <RegisterModal />
     </Provider>
   )
 }
