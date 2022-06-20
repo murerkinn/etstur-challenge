@@ -33,6 +33,16 @@ dl {
   list-style-type: none;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
 img {
   max-width: 100%;
   object-fit: cover;
