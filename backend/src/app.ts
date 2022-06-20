@@ -12,6 +12,7 @@ import accountRouter from '@/domains/account/router'
 import AccountManager from '@/domains/account/manager'
 import { localStrategy } from '@/domains/account/auth-strategies'
 import categoryRouter from '@/domains/category/router'
+import searchRouter from '@/domains/search/router'
 import Mongo, { mongoConnectionString } from '@/lib/mongo'
 import { ExtentableErrorExpressHandler } from '@/lib/errors'
 import AclManager from './domains/acl'
@@ -70,6 +71,7 @@ app.use(passport.session())
 app.get('/health', (_, res) => res.json({ status: 'ok' }))
 app.use('/account', accountRouter)
 app.use('/category', categoryRouter)
+app.use('/search', searchRouter)
 
 app.use(ExtentableErrorExpressHandler())
 
