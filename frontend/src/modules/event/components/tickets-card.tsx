@@ -39,9 +39,7 @@ const TicketsCard = () => {
       <div className="tickets-card-head">
         <ConfirmationNumberOutlinedIcon />
 
-        <h4 className="tickets-card-title">
-          Your Tickets <span>{tickets.length}</span>
-        </h4>
+        <h4 className="tickets-card-title">Your Tickets</h4>
       </div>
 
       {tickets.length > 0 ? (
