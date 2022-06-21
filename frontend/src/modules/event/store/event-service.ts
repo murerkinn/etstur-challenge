@@ -6,8 +6,15 @@ const getEventBySlug = async (slug: string) => {
   return data
 }
 
+const getAvailableTicketsForAnEvent = async (eventId: string) => {
+  const { data } = await API.get(`/ticket/${eventId}`)
+
+  return data
+}
+
 const EventService = {
   getEventBySlug,
+  getAvailableTicketsForAnEvent,
 }
 
 export default EventService
