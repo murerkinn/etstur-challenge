@@ -15,6 +15,12 @@ type Ticket = {
   price: number
 }
 
+type Address = {
+  city: string
+  country: string
+  street: string
+}
+
 export type TicketInCart = Ticket & {
   quantity: number
 }
@@ -34,4 +40,5 @@ export type Event = {
     coordinates: number[]
   }
   photos: Photo[]
+  address: Address
 }

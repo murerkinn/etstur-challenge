@@ -31,12 +31,13 @@ const PinMarker = ({
   )
 }
 
-type MapProps = {
+type MapSectionProps = {
   lat: number
   lng: number
+  address: string
 }
 
-const Map = ({ lat, lng }: MapProps) => {
+const MapSection = ({ lat, lng, address }: MapSectionProps) => {
   const { isLoaded } = useJsApiLoader(googleMapParams)
 
   const [, setMap] = useState<any>(null)
@@ -58,31 +59,39 @@ const Map = ({ lat, lng }: MapProps) => {
   }, [])
 
   return (
-    <div className="map-container">
-      {isLoaded && (
-        <GoogleMap
-          mapContainerStyle={{
-            height: '100%',
-            width: '100%',
-          }}
-          center={{ lat, lng }}
-          zoom={zoom}
-          onLoad={onLoad}
-          onUnmount={onUnmount}
-          options={{
-            fullscreenControl: false,
-            zoomControl: false,
-            minZoom,
-            maxZoom,
-            disableDefaultUI: true,
-            keyboardShortcuts: false,
-          }}
-        >
-          <PinMarker position={{ lat, lng } as unknown as google.maps.LatLng} />
-        </GoogleMap>
-      )}
+    <div className="map-section">
+      <h3 className="map-section-title">Location of the Event</h3>
+
+      <p className="address">{address}</p>
+
+      <div className="map-container">
+        {isLoaded && (
+          <GoogleMap
+            mapContainerStyle={{
+              height: '100%',
+              width: '100%',
+            }}
+            center={{ lat, lng }}
+            zoom={zoom}
+            onLoad={onLoad}
+            onUnmount={onUnmount}
+            options={{
+              fullscreenControl: false,
+              zoomControl: false,
+              minZoom,
+              maxZoom,
+              disableDefaultUI: true,
+              keyboardShortcuts: false,
+            }}
+          >
+            <PinMarker
+              position={{ lat, lng } as unknown as google.maps.LatLng}
+            />
+          </GoogleMap>
+        )}
+      </div>
     </div>
   )
 }
 
-export default Map
+export default MapSection
