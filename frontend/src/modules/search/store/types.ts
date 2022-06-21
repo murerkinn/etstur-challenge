@@ -1,3 +1,5 @@
+import { Event } from '@/modules/event/store/types'
+
 export type SearchStore = {
   city: string
   startsAt: string
