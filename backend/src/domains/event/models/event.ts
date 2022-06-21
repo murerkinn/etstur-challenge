@@ -5,7 +5,7 @@ import slug from 'slug'
 import { CategoryDocument } from '@/domains/category/models/category'
 import { OrganizationDocument } from '@/domains/organization/models/organization'
 
-import { PhotoDocument, PhotoRaw } from './photo'
+import { PhotoDocument, PhotoRaw, photoSchema } from './photo'
 import { AddressDocument, AddressRaw, addressSchema } from './address'
 import { LocationDocument, LocationRaw, locationSchema } from './location'
 
@@ -75,6 +75,7 @@ const schema = new Schema<EventDocument>(
       type: Date,
       required: true,
     },
+    photos: [photoSchema],
   },
   { timestamps: true }
 )
