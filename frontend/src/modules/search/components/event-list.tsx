@@ -1,7 +1,7 @@
 import moment from 'moment'
 import Link from 'next/link'
 
-import { Event } from '../store/types'
+import { Event } from '@/modules/event/store/types'
 
 type EventListItemProps = {
   event: Event
