@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react'
 import EventInfo from '@/modules/event/components/event-info'
 import EventPhotosCarousel from '@/modules/event/components/event-photos-carousel'
 import MapSection from '@/modules/event/components/map-section'
+import SelectTicketSection from '@/modules/event/components/select-ticket-section'
 import TicketsCard from '@/modules/event/components/tickets-card'
 import EventService from '@/modules/event/store/event-service'
 import { Event } from '@/modules/event/store/types'
@@ -15,6 +16,7 @@ const EventDetailsPage = () => {
   const { query } = useRouter()
 
   const [event, setEvent] = useState<Event | null>(null)
+  const [tickets, setTickets] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -30,9 +32,13 @@ const EventDetailsPage = () => {
     setLoading(true)
 
     try {
-      const data = await EventService.getEventBySlug(query.slug as string)
+      const event_ = await EventService.getEventBySlug(query.slug as string)
+      const tickets_ = await EventService.getAvailableTicketsForAnEvent(
+        event_._id
+      )
 
-      setEvent(data)
+      setEvent(event_)
+      setTickets(tickets_)
     } catch (e: any) {
       setError(e.message)
     } finally {
@@ -62,6 +68,8 @@ const EventDetailsPage = () => {
                   lng={event.location.coordinates[0]}
                   address={address}
                 />
+
+                <SelectTicketSection tickets={tickets} eventId={event._id} />
               </div>
 
               <div className="tickets-card-container">

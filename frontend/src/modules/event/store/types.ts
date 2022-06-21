@@ -15,6 +15,14 @@ type Address = {
   street: string
 }
 
+export type AvailableTicketData = {
+  details: {
+    series: string
+    price: number
+  }
+  quantity: number
+}
+
 export type Event = {
   _id: string
   name: string
