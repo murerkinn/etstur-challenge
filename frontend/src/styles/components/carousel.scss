@@ -1,0 +1,21 @@
+.carousel {
+  position: relative;
+
+  &-prev,
+  &-next {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 10;
+    border: none;
+    background-color: var(--light);
+  }
+
+  &-prev {
+    left: 2rem;
+  }
+
+  &-next {
+    right: 2rem;
+  }
+}

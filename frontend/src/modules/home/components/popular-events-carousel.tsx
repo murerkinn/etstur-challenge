@@ -1,5 +1,8 @@
-import { Navigation } from 'swiper'
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
+import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import Button from '@/components/button'
 
 const events = Array.from({ length: 10 }, (_, i) => ({
   _id: i,
@@ -11,9 +14,16 @@ const events = Array.from({ length: 10 }, (_, i) => ({
 const PopularEventsCarousel = () => {
   return (
     <Swiper
-      className="popular-events-carousel"
+      className="popular-events-carousel carousel"
       slidesPerView={1}
-      modules={[Navigation]}
+      modules={[Navigation, Pagination]}
+      pagination={{
+        dynamicBullets: true,
+      }}
+      navigation={{
+        prevEl: '.carousel-prev',
+        nextEl: '.carousel-next',
+      }}
     >
       {events.map(event => (
         <SwiperSlide key={event._id} className="popular-events-carousel-slide">
@@ -33,6 +43,14 @@ const PopularEventsCarousel = () => {
           </div>
         </SwiperSlide>
       ))}
+
+      <Button className="carousel-prev">
+        <KeyboardArrowLeft />
+      </Button>
+
+      <Button className="carousel-next">
+        <KeyboardArrowRight />
+      </Button>
     </Swiper>
   )
 }

@@ -21,6 +21,7 @@ $xl: 1600px;
   --warning: #f39237;
   --success: #3cb989;
   --light: #f3f8fc;
+
   --info: #05b6ec;
   --dark-blue: #0c2e52;
   --purple: #a961ec;
@@ -33,4 +34,9 @@ $xl: 1600px;
   // Components
   --input-border-radius: 0.5rem;
   --input-error-bg-color: #ff5e000d;
+
+  // Swiper pagination
+  --swiper-pagination-bullet-size: 0.6rem;
+  --swiper-pagination-color: var(--white);
+  --swiper-pagination-bullet-inactive-color: var(--white-40);
 }
