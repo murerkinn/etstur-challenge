@@ -9,20 +9,10 @@ type Category = {
   name: string
 }
 
-type Ticket = {
-  _id: string
-  type: string
-  price: number
-}
-
 type Address = {
   city: string
   country: string
   street: string
-}
-
-export type TicketInCart = Ticket & {
-  quantity: number
 }
 
 export type Event = {

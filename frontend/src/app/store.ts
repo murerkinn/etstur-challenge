@@ -2,6 +2,7 @@ import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 import { authReducer } from '@/modules/auth/store/auth-slice'
+import { cartReducer } from '@/modules/cart/store/cart-slice'
 import { searchReducer } from '@/modules/search/store/search-slice'
 
 export function createStore() {
@@ -9,6 +10,7 @@ export function createStore() {
     reducer: {
       auth: authReducer,
       search: searchReducer,
+      cart: cartReducer,
     },
   })
 }
