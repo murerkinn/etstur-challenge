@@ -8,6 +8,7 @@ import Button from '@/components/button'
 import CategorySelector from './category-selector'
 import CitySelector from './city-selector'
 import DateSelector from './date-selector'
+import TextSearch from './text-search'
 
 const SearchBar = () => {
   const router = useRouter()
@@ -31,6 +32,7 @@ const SearchBar = () => {
   return (
     <div className="search-bar">
       <div className="container search-bar-inner">
+        <TextSearch />
         <CategorySelector />
         <DateSelector />
         <CitySelector />
