@@ -41,6 +41,15 @@ const searchSlice = createSlice({
       state.page = action.payload
     },
   },
+  extraReducers: {
+    'search/search/pending': state => {
+      state.loading = true
+    },
+    'search/search/fulfilled': (state, action) => {
+      state.loading = false
+      state.events = action.payload.list
+      state.totalPageCount = action.payload.totalPageCount
+    },
   },
 })
 
