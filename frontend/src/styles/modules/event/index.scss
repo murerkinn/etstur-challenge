@@ -3,3 +3,22 @@
 @import './tickets-card.scss';
 @import './event-photos-carousel.scss';
 
+.event-details-page {
+  &-inner {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 4rem;
+
+    .tickets-card-container {
+      display: none;
+    }
+
+    @media screen and (min-width: $sm) {
+      grid-template-columns: calc(70% - 2rem) calc(30% - 2rem);
+
+      .tickets-card-container {
+        display: block;
+      }
+    }
+  }
+}
