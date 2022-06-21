@@ -13,7 +13,7 @@ const EventListItem = ({ event }: EventListItemProps) => {
       <div className="event-list-item-cell event-cell">
         <img src="/images/slide.jpg" alt={event.name} className="thumbnail" />
 
-        <Link href={`/event/${event.slug}`} passHref>
+        <Link href={`/events/${event.slug}`} passHref>
           <a>{event.name}</a>
         </Link>
       </div>
