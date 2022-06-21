@@ -14,4 +14,10 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  .menu {
+    @media screen and (max-width: $xs) {
+      display: none;
+    }
+  }
 }
