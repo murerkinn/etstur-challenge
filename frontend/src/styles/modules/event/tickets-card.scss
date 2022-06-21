@@ -1,0 +1,63 @@
+.tickets-card {
+  position: sticky;
+  top: 20rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border-radius: 1rem;
+  padding: 2rem;
+
+  &-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    svg {
+      margin-right: 1rem;
+    }
+  }
+
+  &-title {
+    width: 100%;
+
+    span {
+      text-align: right;
+    }
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .no-tickets {
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+
+    img {
+      width: 60%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .ticket-details {
+    padding: 1rem 0;
+    border-top: 0.5px solid var(--dark-blue);
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .label {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 2rem;
+  }
+}
