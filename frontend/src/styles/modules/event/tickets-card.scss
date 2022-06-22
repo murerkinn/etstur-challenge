@@ -49,7 +49,19 @@
     }
   }
 
-  .btn {
+  .continue-button {
     margin-top: 2rem;
+  }
+
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 0.6rem;
+
+    .btn.btn-icon-only {
+      padding: 0.4rem !important;
+    }
   }
 }

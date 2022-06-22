@@ -89,6 +89,14 @@
 
   &-icon-only {
     padding: 1rem;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    &:active {
+      filter: brightness(1.1);
+    }
   }
 
   &-loading {
