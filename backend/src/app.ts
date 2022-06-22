@@ -17,7 +17,8 @@ import eventRouter from '@/domains/event/router'
 import ticketRouter from '@/domains/ticket/router'
 import Mongo, { mongoConnectionString } from '@/lib/mongo'
 import { ExtentableErrorExpressHandler } from '@/lib/errors'
-import AclManager from './domains/acl'
+import fixtureRouter from '@/lib/fixture/router'
+import AclManager from '@/domains/acl'
 
 const debug = Debug('app:main')
 
@@ -76,6 +77,7 @@ app.use('/category', categoryRouter)
 app.use('/search', searchRouter)
 app.use('/event', eventRouter)
 app.use('/ticket', ticketRouter)
+app.use('/fixture', fixtureRouter)
 
 app.use(ExtentableErrorExpressHandler())
 

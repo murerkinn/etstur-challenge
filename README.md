@@ -45,6 +45,11 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    docker-compose up
    ```
+4. Generate mock data: (this may take a few minutes)
+
+```sh
+curl -X POST http://api.evently.localhost/fixture
+```
 
 ## Contact
 
