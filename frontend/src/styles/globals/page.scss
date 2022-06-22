@@ -3,7 +3,7 @@
   padding-bottom: 6rem;
   min-height: calc(100vh - 6rem);
 
-  &.error-page {
+  &.error-page > .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
