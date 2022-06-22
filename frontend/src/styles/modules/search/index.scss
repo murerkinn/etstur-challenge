@@ -3,6 +3,8 @@
 @import './pagination.scss';
 @import './event-list.scss';
 @import './text-search.scss';
+@import './selector-container.scss';
+@import './search-bottom-sheet.scss';
 
 .search-page {
   .loading {
@@ -18,6 +20,12 @@
     img {
       margin-bottom: 4rem;
       max-width: 40rem;
+      width: 60%;
+    }
+
+    h2 {
+      margin: auto;
+      max-width: 80%;
     }
   }
 }

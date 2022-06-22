@@ -19,6 +19,7 @@ const initialState: SearchStore = {
   events: [],
   totalPageCount: 1,
   categories: [],
+  searchBottomSheetOpen: false,
 }
 
 const searchSlice = createSlice({
@@ -47,6 +48,12 @@ const searchSlice = createSlice({
     setCategories(state: SearchStore, action: PayloadAction<Category[]>) {
       state.categories = action.payload
     },
+    setSearchBottomSheetOpen(
+      state: SearchStore,
+      action: PayloadAction<boolean>
+    ) {
+      state.searchBottomSheetOpen = action.payload
+    },
   },
   extraReducers: {
     'search/search/pending': state => {
@@ -67,6 +74,7 @@ export const {
   setCategory,
   setPage,
   setCategories,
+  setSearchBottomSheetOpen,
 } = searchSlice.actions
 
 export const searchReducer = searchSlice.reducer

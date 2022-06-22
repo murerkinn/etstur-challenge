@@ -1,0 +1,11 @@
+.selector-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  & > .MuiSvgIcon-root {
+    width: 2.4rem !important;
+    height: 2.4rem !important;
+    margin-right: 0.6rem;
+  }
+}

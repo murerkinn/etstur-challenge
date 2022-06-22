@@ -2,6 +2,7 @@ import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined'
+import cn from 'classnames'
 import moment from 'moment'
 import { useCallback, useState } from 'react'
 import { DateRangePicker } from 'react-dates'
@@ -10,7 +11,11 @@ import { useAppDispatch, useAppSelector } from '@/app/store'
 
 import { setDates } from '../store/search-slice'
 
-const DateSelector = () => {
+type Props = {
+  className?: string
+}
+
+const DateSelector = ({ className }: Props) => {
   const dispatch = useAppDispatch()
   const { startsAt, endsAt } = useAppSelector(state => state.search)
 
@@ -26,7 +31,7 @@ const DateSelector = () => {
   }, [])
 
   return (
-    <div className="selector-container">
+    <div className={cn(className, 'selector-container')}>
       <CalendarMonthOutlinedIcon />
 
       <DateRangePicker

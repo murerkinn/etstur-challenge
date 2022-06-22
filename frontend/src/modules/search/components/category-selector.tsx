@@ -1,4 +1,5 @@
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined'
+import cn from 'classnames'
 import { useMemo } from 'react'
 
 import { useAppDispatch, useAppSelector } from '@/app/store'
@@ -6,7 +7,11 @@ import { useAppDispatch, useAppSelector } from '@/app/store'
 import { setCategory } from '../store/search-slice'
 import Selector from './selector'
 
-const CategorySelector = () => {
+type Props = {
+  className?: string
+}
+
+const CategorySelector = ({ className }: Props) => {
   const dispatch = useAppDispatch()
   const { category, categories } = useAppSelector(state => state.search)
 
@@ -16,7 +21,7 @@ const CategorySelector = () => {
   )
 
   return (
-    <div className="selector-container">
+    <div className={cn(className, 'selector-container')}>
       <CategoryOutlinedIcon />
 
       <Selector

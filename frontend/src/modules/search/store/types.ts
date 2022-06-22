@@ -18,4 +18,5 @@ export type SearchStore = {
   events: Event[]
   totalPageCount: number
   categories: Category[]
+  searchBottomSheetOpen: boolean
 }

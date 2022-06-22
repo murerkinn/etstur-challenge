@@ -1,4 +1,5 @@
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
+import cn from 'classnames'
 import { useMemo } from 'react'
 
 import { useAppDispatch, useAppSelector } from '@/app/store'
@@ -7,7 +8,11 @@ import cities from '@/constants/cities'
 import { setCity } from '../store/search-slice'
 import Selector from './selector'
 
-const CitySelector = () => {
+type Props = {
+  className?: string
+}
+
+const CitySelector = ({ className }: Props) => {
   const dispatch = useAppDispatch()
   const { city } = useAppSelector(state => state.search)
 
@@ -17,7 +22,7 @@ const CitySelector = () => {
   )
 
   return (
-    <div className="selector-container">
+    <div className={cn(className, 'selector-container')}>
       <FmdGoodOutlinedIcon />
 
       <Selector

@@ -14,6 +14,7 @@ import Header from '@/components/header'
 import LoginModal from '@/modules/auth/components/login-modal'
 import RegisterModal from '@/modules/auth/components/register-modal'
 import SearchBar from '@/modules/search/components/search-bar'
+import SearchBottomSheet from '@/modules/search/components/search-bottom-sheet'
 import SearchService from '@/modules/search/store/search-service'
 import { setCategories } from '@/modules/search/store/search-slice'
 
@@ -40,6 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         <LoginModal />
         <RegisterModal />
+        <SearchBottomSheet />
       </AppWrapper>
     </Provider>
   )

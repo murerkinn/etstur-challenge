@@ -1,10 +1,12 @@
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
+import TuneIcon from '@mui/icons-material/Tune'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 
-import { useAppSelector } from '@/app/store'
+import { useAppDispatch, useAppSelector } from '@/app/store'
 import Button from '@/components/button'
 
+import { setSearchBottomSheetOpen } from '../store/search-slice'
 import CategorySelector from './category-selector'
 import CitySelector from './city-selector'
 import DateSelector from './date-selector'
@@ -12,6 +14,8 @@ import TextSearch from './text-search'
 
 const SearchBar = () => {
   const router = useRouter()
+
+  const dispatch = useAppDispatch()
 
   const { city, category, startsAt, endsAt, textSearch } = useAppSelector(
     state => state.search
@@ -32,16 +36,32 @@ const SearchBar = () => {
     })
   }, [city, category, startsAt, endsAt, textSearch])
 
+  const openSearchBottomSheet = useCallback(() => {
+    dispatch(setSearchBottomSheetOpen(true))
+  }, [])
+
   return (
     <div className="search-bar">
       <div className="container search-bar-inner">
         <TextSearch />
-        <CategorySelector />
-        <DateSelector />
-        <CitySelector />
+        <CategorySelector className="show-only-on-desktop" />
+        <DateSelector className="show-only-on-desktop" />
+        <CitySelector className="show-only-on-desktop" />
 
-        <Button variant="primary" onClick={onSearch}>
+        <Button
+          variant="primary"
+          onClick={onSearch}
+          className="show-only-on-desktop"
+        >
           <SearchOutlinedIcon />
+        </Button>
+
+        <Button
+          onClick={openSearchBottomSheet}
+          variant="icon-only"
+          className="hide-on-desktop"
+        >
+          <TuneIcon />
         </Button>
       </div>
     </div>
