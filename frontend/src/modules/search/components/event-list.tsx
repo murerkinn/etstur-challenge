@@ -39,6 +39,15 @@ type EventListProps = {
 }
 
 const EventList = ({ events }: EventListProps) => {
+  if (events.length === 0)
+    return (
+      <div className="no-data">
+        <img src="/images/no-data.svg" alt="No Data" />
+
+        <h2>Upss, no event found with current filters.</h2>
+      </div>
+    )
+
   return (
     <div className="event-list">
       <div className="event-list-head">

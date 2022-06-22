@@ -11,4 +11,13 @@
     justify-content: center;
     align-items: center;
   }
+
+  .no-data {
+    text-align: center;
+
+    img {
+      margin-bottom: 4rem;
+      max-width: 40rem;
+    }
+  }
 }
