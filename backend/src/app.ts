@@ -15,6 +15,7 @@ import categoryRouter from '@/domains/category/router'
 import searchRouter from '@/domains/search/router'
 import eventRouter from '@/domains/event/router'
 import ticketRouter from '@/domains/ticket/router'
+import organizationRouter from '@/domains/organization/router'
 import Mongo, { mongoConnectionString } from '@/lib/mongo'
 import { ExtentableErrorExpressHandler } from '@/lib/errors'
 import fixtureRouter from '@/lib/fixture/router'
@@ -77,6 +78,7 @@ app.use('/category', categoryRouter)
 app.use('/search', searchRouter)
 app.use('/event', eventRouter)
 app.use('/ticket', ticketRouter)
+app.use('/organization', organizationRouter)
 app.use('/fixture', fixtureRouter)
 
 app.use(ExtentableErrorExpressHandler())

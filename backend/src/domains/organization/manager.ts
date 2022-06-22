@@ -35,9 +35,16 @@ const getOrganizationById = async (id: string) => {
   return organization
 }
 
+const getOrganizationBySlug = async (slug: string) => {
+  const organization = await Organization.findOne({ slug })
+
+  return organization
+}
+
 const OrganizationManager = {
   createOrganization,
   getOrganizationById,
+  getOrganizationBySlug,
 }
 
 export default OrganizationManager
