@@ -44,11 +44,11 @@ const PopularEventsCarousel = () => {
         </SwiperSlide>
       ))}
 
-      <Button className="carousel-prev">
+      <Button className="carousel-prev" variant="icon-only">
         <KeyboardArrowLeft />
       </Button>
 
-      <Button className="carousel-next">
+      <Button className="carousel-next" variant="icon-only">
         <KeyboardArrowRight />
       </Button>
     </Swiper>
