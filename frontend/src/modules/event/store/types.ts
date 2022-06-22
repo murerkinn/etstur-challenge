@@ -1,3 +1,5 @@
+import { Organization } from '@/modules/organization/store/types'
+
 export type Photo = {
   _id: string
   url: string
@@ -28,7 +30,7 @@ export type Event = {
   name: string
   description: string
   slug: string
-  organizator: string
+  organizator: Organization
   organizatorName: string
   startsAt: Date
   endsAt: Date
