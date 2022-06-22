@@ -1,0 +1,68 @@
+.DateRangePicker {
+  width: 100%;
+
+  .DateRangePickerInput {
+    width: 100%;
+    border-radius: 0.5rem;
+
+    .DateInput {
+      width: 9rem;
+    }
+
+    .DateInput_input {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+.DayPicker_transitionContainer {
+  height: 36rem !important;
+}
+
+.CalendarDay__selected_span {
+  background: var(--primary) !important;
+  color: var(--white) !important;
+  // border: none !important;
+  border: 0.1px solid var(--light) !important;
+}
+
+.CalendarDay__hovered_span {
+  background-color: transparentize(#6a62ff, 0.2) !important;
+  border: none !important;
+  color: var(--white) !important;
+}
+
+.CalendarDay__selected {
+  background: var(--primary) !important;
+  color: var(--white) !important;
+  border: 0.1px solid var(--light) !important;
+
+  &.CalendarDay__selected_start {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  &.CalendarDay__selected_end {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+    &.CalendarDay__lastDayOfWeek {
+      border-top-right-radius: 0;
+    }
+  }
+
+  &:hover {
+    filter: brightness(0.9);
+    color: var(--white) !important;
+  }
+}
+
+.CalendarDay__hovered_span:hover,
+.CalendarDay__hovered_span {
+  background: var(--danger);
+}
+
+.CalendarMonth_table {
+  margin-top: 2rem;
+}

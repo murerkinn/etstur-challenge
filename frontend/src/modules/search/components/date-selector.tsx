@@ -1,32 +1,43 @@
+import 'react-dates/initialize'
+import 'react-dates/lib/css/_datepicker.css'
+
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined'
+import moment from 'moment'
 import { useCallback, useState } from 'react'
+import { DateRangePicker } from 'react-dates'
 
-import Selector from './selector'
+import { useAppDispatch, useAppSelector } from '@/app/store'
 
-const dateOptions = [
-  'Today',
-  'Tomorrow',
-  'This Week',
-  'In 2 Weeks',
-  'This Month',
-]
+import { setDates } from '../store/search-slice'
 
 const DateSelector = () => {
-  const [selectedSmartDate, setSelectedSmartDate] = useState('')
+  const dispatch = useAppDispatch()
+  const { startsAt, endsAt } = useAppSelector(state => state.search)
 
-  const handleChange = useCallback((val: string) => {
-    console.log('val')
-    setSelectedSmartDate(val)
+  const [focusedInput, setFocusedInput] = useState<any>(null)
+
+  const handleChange = useCallback((dates: any) => {
+    dispatch(
+      setDates({
+        startsAt: dates.startDate.format('YYYY-MM-DD'),
+        endsAt: dates.endDate ? dates.endDate.format('YYYY-MM-DD') : null,
+      })
+    )
   }, [])
 
   return (
     <div className="selector-container">
       <CalendarMonthOutlinedIcon />
 
-      <Selector
-        options={dateOptions}
-        onChange={handleChange}
-        value={selectedSmartDate}
+      <DateRangePicker
+        hideKeyboardShortcutsPanel
+        startDate={moment(startsAt)}
+        startDateId="your_unique_start_date_id"
+        endDate={moment(endsAt)}
+        endDateId="your_unique_end_date_id"
+        onDatesChange={handleChange}
+        focusedInput={focusedInput}
+        onFocusChange={setFocusedInput}
       />
     </div>
   )
