@@ -28,17 +28,17 @@
     &-cell {
       padding: 2rem 0;
 
+      a {
+        text-decoration: underline;
+        font-weight: 500;
+      }
+
       &.event-cell {
         display: flex;
         flex-direction: column;
 
         @media screen and (min-width: $sm) {
           flex-direction: row;
-        }
-
-        a {
-          text-decoration: underline;
-          font-weight: 500;
         }
 
         .thumbnail {
