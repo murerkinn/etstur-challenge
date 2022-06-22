@@ -2,7 +2,6 @@ import { useAppSelector } from '@/app/store'
 
 import Button from './button'
 import Logo from './logo'
-import Menu from './menu'
 import { openModal } from './modal'
 import ProfileInfo from './profile-info'
 
@@ -13,10 +12,6 @@ const Header = () => {
     <header className="header">
       <div className="container header-inner">
         <Logo />
-
-        <nav>
-          <Menu />
-        </nav>
 
         {user ? (
           <ProfileInfo />

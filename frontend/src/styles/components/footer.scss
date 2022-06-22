@@ -6,16 +6,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    @media screen and (max-width: $xs) {
-      justify-content: center;
-    }
-  }
-
-  .menu {
-    @media screen and (max-width: $xs) {
-      display: none;
-    }
   }
 
   .copyright-text {
