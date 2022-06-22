@@ -106,7 +106,7 @@ const EventDetailsPage = () => {
 
                     <div>
                       <Link
-                        href={`/organizator/${event.organizator.slug}`}
+                        href={`/organizations/${event.organizator.slug}`}
                         passHref
                       >
                         <a>
