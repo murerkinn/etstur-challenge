@@ -12,7 +12,7 @@ const initialState: SearchStore = {
   category: searchParams.get('category') || '',
   pageLimit: 10,
   page: parseInt(searchParams.get('page') || '1'),
-  loading: false,
+  loading: true,
   events: [],
   totalPageCount: 1,
   categories: [],
