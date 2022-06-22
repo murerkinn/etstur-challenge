@@ -39,4 +39,5 @@ export type Event = {
   }
   photos: Photo[]
   address: Address
+  free: boolean
 }

@@ -69,7 +69,11 @@ const EventDetailsPage = () => {
                   address={address}
                 />
 
-                <SelectTicketSection tickets={tickets} eventId={event._id} />
+                <SelectTicketSection
+                  tickets={tickets}
+                  eventId={event._id}
+                  isFree={event.free}
+                />
               </div>
 
               <div className="tickets-card-container">

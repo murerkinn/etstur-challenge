@@ -13,6 +13,7 @@ import { AvailableTicketData } from '../store/types'
 type SelectTicketSectionProps = {
   tickets: AvailableTicketData[]
   eventId: string
+  isFree: boolean
 }
 
 type TicketSelectorProps = {
@@ -84,20 +85,25 @@ const TicketSelector = ({ ticket, eventId }: TicketSelectorProps) => {
 const SelectTicketSection = ({
   tickets,
   eventId,
+  isFree,
 }: SelectTicketSectionProps) => {
   return (
     <div className="select-ticket-section">
       <h3 className="select-ticket-section-title">Tickets for this event</h3>
 
-      <div className="available-ticket-list">
-        {tickets.map(ticket => (
-          <TicketSelector
-            key={ticket.details.series}
-            ticket={ticket}
-            eventId={eventId}
-          />
-        ))}
-      </div>
+      {isFree ? (
+        <p>This event is free 🎉</p>
+      ) : (
+        <div className="available-ticket-list">
+          {tickets.map(ticket => (
+            <TicketSelector
+              key={ticket.details.series}
+              ticket={ticket}
+              eventId={eventId}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
