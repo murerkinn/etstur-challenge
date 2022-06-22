@@ -10,8 +10,15 @@ const search = async (params: ParsedUrlQuery) => {
   return data
 }
 
+const getCategories = async () => {
+  const { data } = await API.get('/category')
+
+  return data
+}
+
 const SearchService = {
   search,
+  getCategories,
 }
 
 export default SearchService

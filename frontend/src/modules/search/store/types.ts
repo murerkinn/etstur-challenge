@@ -1,5 +1,11 @@
 import { Event } from '@/modules/event/store/types'
 
+export type Category = {
+  _id: string
+  name: string
+  slug: string
+}
+
 export type SearchStore = {
   city: string
   startsAt: string
@@ -11,4 +17,5 @@ export type SearchStore = {
   loading: boolean
   events: Event[]
   totalPageCount: number
+  categories: Category[]
 }

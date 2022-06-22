@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { SearchStore } from './types'
+import { Category, SearchStore } from './types'
 
 const searchParams = new URLSearchParams(global?.location?.search)
 
@@ -15,6 +15,7 @@ const initialState: SearchStore = {
   loading: false,
   events: [],
   totalPageCount: 1,
+  categories: [],
 }
 
 const searchSlice = createSlice({
@@ -40,6 +41,9 @@ const searchSlice = createSlice({
     setPage(state: SearchStore, action: PayloadAction<number>) {
       state.page = action.payload
     },
+    setCategories(state: SearchStore, action: PayloadAction<Category[]>) {
+      state.categories = action.payload
+    },
   },
   extraReducers: {
     'search/search/pending': state => {
@@ -53,7 +57,13 @@ const searchSlice = createSlice({
   },
 })
 
-export const { setCity, setDates, setTextSearch, setCategory, setPage } =
-  searchSlice.actions
+export const {
+  setCity,
+  setDates,
+  setTextSearch,
+  setCategory,
+  setPage,
+  setCategories,
+} = searchSlice.actions
 
 export const searchReducer = searchSlice.reducer
