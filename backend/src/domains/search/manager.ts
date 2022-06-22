@@ -27,6 +27,7 @@ const search = async (where: any) => {
         ],
       },
     ]
+  if (where.organizator) query.organizator = where.organizator
 
   const pipeline = [
     { $match: query },
