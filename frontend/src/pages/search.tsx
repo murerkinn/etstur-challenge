@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
 import { useAppDispatch, useAppSelector } from '@/app/store'
+import Spinner from '@/components/spinner'
 import EventList from '@/modules/search/components/event-list'
 import Pagination from '@/modules/search/components/pagination'
 import { search } from '@/modules/search/store/actions'
@@ -40,8 +41,16 @@ const SearchPage = () => {
     <>
       <main className="page search-page">
         <div className="container">
-          <EventList events={events} />
-          <Pagination pageCount={totalPageCount} />
+          {loading ? (
+            <div className="loading">
+              <Spinner />
+            </div>
+          ) : (
+            <>
+              <EventList events={events} />
+              <Pagination pageCount={totalPageCount} />
+            </>
+          )}
         </div>
       </main>
     </>

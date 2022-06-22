@@ -3,3 +3,12 @@
 @import './pagination.scss';
 @import './event-list.scss';
 @import './text-search.scss';
+
+.search-page {
+  .loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
