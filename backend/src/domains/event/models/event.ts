@@ -36,6 +36,7 @@ export interface EventDocument extends Document, EventRaw {
   free: boolean
   organizatorName: string
   address: AddressDocument
+  soldTicketCount: number
 }
 
 const schema = new Schema<EventDocument>(
@@ -76,6 +77,10 @@ const schema = new Schema<EventDocument>(
       required: true,
     },
     photos: [photoSchema],
+    soldTicketCount: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 )
