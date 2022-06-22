@@ -1,10 +1,13 @@
 .tickets-card {
-  position: sticky;
-  top: 20rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  border-radius: 1rem;
   padding: 2rem;
+
+  @media screen and (min-width: $sm) {
+    position: sticky;
+    top: 20rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border-radius: 1rem;
+  }
 
   &-head {
     display: flex;
@@ -61,7 +64,13 @@
     gap: 0.6rem;
 
     .btn.btn-icon-only {
-      padding: 0.4rem !important;
+      padding: 1rem !important;
+      transform: scale(1.4);
+
+      @media screen and (min-width: $sm) {
+        padding: 0.4rem !important;
+        transform: unset;
+      }
     }
   }
 }

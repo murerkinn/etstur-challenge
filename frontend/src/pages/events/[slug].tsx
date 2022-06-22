@@ -1,7 +1,9 @@
 import startCase from 'lodash/startCase'
 import { useRouter } from 'next/router'
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { BottomSheet } from 'react-spring-bottom-sheet'
 
+import { useAppSelector } from '@/app/store'
 import EventInfo from '@/modules/event/components/event-info'
 import EventPhotosCarousel from '@/modules/event/components/event-photos-carousel'
 import MapSection from '@/modules/event/components/map-section'
@@ -15,9 +17,12 @@ const regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 const EventDetailsPage = () => {
   const { query } = useRouter()
 
+  const { tickets: ticketsInStore } = useAppSelector(state => state.cart)
+
   const [event, setEvent] = useState<Event | null>(null)
   const [tickets, setTickets] = useState([])
   const [loading, setLoading] = useState(false)
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false)
   const [error, setError] = useState('')
 
   const address = useMemo(() => {
@@ -46,11 +51,23 @@ const EventDetailsPage = () => {
     }
   }
 
+  const onDismiss = useCallback(() => {
+    setBottomSheetOpen(false)
+  }, [])
+
+  useEffect(() => {
+    setBottomSheetOpen(true)
+  }, [])
+
   useEffect(() => {
     if (!query.slug) return
 
     fetchEvent()
   }, [query.slug])
+
+  useEffect(() => {
+    setBottomSheetOpen(true)
+  }, [ticketsInStore])
 
   return (
     <>
@@ -81,6 +98,20 @@ const EventDetailsPage = () => {
               </div>
             </div>
           </div>
+
+          <BottomSheet
+            open={bottomSheetOpen}
+            defaultSnap={({ maxHeight }) => maxHeight / 2}
+            snapPoints={({ maxHeight }) => [
+              maxHeight / 10,
+              maxHeight / 4,
+              maxHeight * 0.6,
+            ]}
+            className="show-only-on-mobile"
+            onDismiss={onDismiss}
+          >
+            <TicketsCard />
+          </BottomSheet>
         </main>
       ) : null}
     </>
