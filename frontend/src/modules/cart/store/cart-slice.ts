@@ -29,15 +29,9 @@ const cartSlice = createSlice({
           t.event === action.payload.event && t.series === action.payload.series
       )
 
-      const ticket = state.tickets[ticketIndex]
+      state.tickets[ticketIndex].quantity -= 1
 
-      if (ticket.quantity > 1) state.tickets[ticketIndex].quantity -= 1
-      else
-        state.tickets = state.tickets.filter(
-          t =>
-            t.event !== action.payload.event &&
-            t.series !== action.payload.series
-        )
+      state.tickets = state.tickets.filter(t => t.quantity > 0)
     },
   },
 })
