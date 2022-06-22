@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import moment from 'moment'
 
 import { Category, SearchStore } from './types'
 
@@ -6,8 +7,10 @@ const searchParams = new URLSearchParams(global?.location?.search)
 
 const initialState: SearchStore = {
   city: searchParams.get('city') || 'ankara',
-  startsAt: searchParams.get('startsAt') || '',
-  endsAt: searchParams.get('endsAt') || '',
+  startsAt: searchParams.get('startsAt') || moment.utc().format('YYYY-MM-DD'),
+  endsAt:
+    searchParams.get('endsAt') ||
+    moment.utc().add(1, 'month').format('YYYY-MM-DD'),
   textSearch: searchParams.get('textSearch') || '',
   category: searchParams.get('category') || '',
   pageLimit: 10,
