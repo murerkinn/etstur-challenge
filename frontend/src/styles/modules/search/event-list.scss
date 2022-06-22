@@ -18,9 +18,11 @@
   &-item {
     display: grid;
     grid-template-columns: 100%;
+    border-bottom: 1px solid var(--neutral-lighter);
 
     @media screen and (min-width: $sm) {
       grid-template-columns: 60% 30% 10%;
+      border-bottom: none;
     }
 
     &-cell {
