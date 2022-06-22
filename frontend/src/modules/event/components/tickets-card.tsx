@@ -2,7 +2,7 @@ import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumb
 import startCase from 'lodash/startCase'
 
 import { useAppSelector } from '@/app/store'
-import Button from '@/components/button'
+// import Button from '@/components/button'
 import formatMoney from '@/lib/format-money'
 import { TicketInCart } from '@/modules/cart/store/types'
 
@@ -57,13 +57,13 @@ const TicketsCard = () => {
         </div>
       )}
 
-      <Button
+      {/* <Button
         className="btn-block"
         variant="primary"
         disabled={tickets.length === 0}
       >
         Continue
-      </Button>
+      </Button> */}
     </div>
   )
 }
