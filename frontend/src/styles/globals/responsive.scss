@@ -1,0 +1,39 @@
+.hide-on-desktop {
+  display: none !important;
+
+  @media screen and (max-width: $md) {
+    display: flex !important;
+  }
+}
+
+.hide-on-tablet {
+  display: none !important;
+
+  @media screen and (max-width: $sm) and (min-width: $md) {
+    display: flex !important;
+  }
+}
+
+.hide-on-mobile {
+  display: none !important;
+
+  @media screen and (min-width: $sm) {
+    display: flex !important;
+  }
+}
+
+.show-only-on-desktop {
+  display: none !important;
+
+  @media screen and (min-width: $md) {
+    display: flex !important;
+  }
+}
+
+.show-only-on-mobile {
+  display: none !important;
+
+  @media screen and (max-width: $sm) {
+    display: flex !important;
+  }
+}
