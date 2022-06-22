@@ -2,6 +2,14 @@
   @import './popular-events-carousel.scss';
 
   .hero-section {
-    padding: 4rem 0;
+    margin-bottom: 4rem;
+  }
+
+  .past-events-section {
+    padding: 2rem 0;
+
+    &-title {
+      margin-bottom: 2rem;
+    }
   }
 }

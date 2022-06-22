@@ -40,9 +40,10 @@ const EventListItem = ({ event }: EventListItemProps) => {
 
 type EventListProps = {
   events: Event[]
+  hideHeader?: boolean
 }
 
-const EventList = ({ events }: EventListProps) => {
+const EventList = ({ events, hideHeader = false }: EventListProps) => {
   if (events.length === 0)
     return (
       <div className="no-data">
@@ -54,11 +55,13 @@ const EventList = ({ events }: EventListProps) => {
 
   return (
     <div className="event-list">
-      <div className="event-list-head">
-        <span>Event</span>
-        <span>Organizator</span>
-        <span>Date</span>
-      </div>
+      {!hideHeader && (
+        <div className="event-list-head">
+          <span>Event</span>
+          <span>Organizator</span>
+          <span>Date</span>
+        </div>
+      )}
 
       <div className="event-list-body">
         {events.map(event => (
