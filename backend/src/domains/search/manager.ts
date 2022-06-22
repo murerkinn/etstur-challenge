@@ -34,6 +34,7 @@ const search = async (where: any) => {
 
   const pipeline = [
     { $match: query },
+    { $sort: { startsAt: 1 as 1 } },
     { $skip: where.pagination.skip },
     { $limit: where.pagination.limit },
   ]
