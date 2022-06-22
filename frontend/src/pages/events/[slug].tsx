@@ -23,7 +23,6 @@ const EventDetailsPage = () => {
   const [tickets, setTickets] = useState([])
   const [loading, setLoading] = useState(false)
   const [bottomSheetOpen, setBottomSheetOpen] = useState(false)
-  const [error, setError] = useState('')
 
   const address = useMemo(() => {
     if (!event) return ''
@@ -45,7 +44,7 @@ const EventDetailsPage = () => {
       setEvent(event_)
       setTickets(tickets_)
     } catch (e: any) {
-      setError(e.message)
+      console.error(e.message)
     } finally {
       setLoading(false)
     }
