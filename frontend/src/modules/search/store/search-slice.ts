@@ -5,7 +5,7 @@ import { Category, SearchStore } from './types'
 const searchParams = new URLSearchParams(global?.location?.search)
 
 const initialState: SearchStore = {
-  city: searchParams.get('city') || '',
+  city: searchParams.get('city') || 'ankara',
   startsAt: searchParams.get('startsAt') || '',
   endsAt: searchParams.get('endsAt') || '',
   textSearch: searchParams.get('textSearch') || '',
