@@ -1,4 +1,5 @@
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
+import Link from 'next/link'
 import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -32,9 +33,13 @@ const PopularEventsCarousel = ({ events }: Props) => {
           />
 
           <div className="popular-events-carousel-slide-details">
-            <h3 className="popular-events-carousel-slide-title">
-              {event.name}
-            </h3>
+            <Link href={`/events/${event.slug}`} passHref>
+              <a>
+                <h3 className="popular-events-carousel-slide-title">
+                  {event.name}
+                </h3>
+              </a>
+            </Link>
             <p className="popular-events-carousel-slide-description">
               {event.description}
             </p>
