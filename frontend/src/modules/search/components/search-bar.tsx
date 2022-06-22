@@ -13,21 +13,24 @@ import TextSearch from './text-search'
 const SearchBar = () => {
   const router = useRouter()
 
-  const { city, category, startsAt, endsAt } = useAppSelector(
+  const { city, category, startsAt, endsAt, textSearch } = useAppSelector(
     state => state.search
   )
 
   const onSearch = useCallback(() => {
+    const query: any = {}
+
+    if (city) query.city = city
+    if (category) query.category = category
+    if (startsAt) query.startsAt = startsAt
+    if (endsAt) query.endsAt = endsAt
+    if (textSearch) query.textSearch = textSearch
+
     router.push({
       pathname: '/search',
-      query: {
-        city,
-        category,
-        startsAt,
-        endsAt,
-      },
+      query,
     })
-  }, [city, category, startsAt, endsAt])
+  }, [city, category, startsAt, endsAt, textSearch])
 
   return (
     <div className="search-bar">
