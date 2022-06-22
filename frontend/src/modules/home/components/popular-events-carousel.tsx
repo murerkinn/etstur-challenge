@@ -3,15 +3,13 @@ import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import Button from '@/components/button'
+import { Event } from '@/modules/event/store/types'
 
-const events = Array.from({ length: 10 }, (_, i) => ({
-  _id: i,
-  name: 'Event ' + i,
-  description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, delectus? Aliquam, provident! Quis eaque harum doloribus? Quo illum autem eius.`,
-  photos: [{ url: '/images/slide.jpg', description: 'Slide' }],
-}))
+type Props = {
+  events: Event[]
+}
 
-const PopularEventsCarousel = () => {
+const PopularEventsCarousel = ({ events }: Props) => {
   return (
     <Swiper
       className="popular-events-carousel carousel"

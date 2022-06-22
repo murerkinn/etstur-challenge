@@ -16,9 +16,16 @@ const getCategories = async () => {
   return data
 }
 
+const getPopularEvents = async () => {
+  const { data } = await API.get('/search/popular')
+
+  return data
+}
+
 const SearchService = {
   search,
   getCategories,
+  getPopularEvents,
 }
 
 export default SearchService
