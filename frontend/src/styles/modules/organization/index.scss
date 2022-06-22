@@ -1,1 +1,15 @@
 @import './organization-info.scss';
+
+.organization-details-page {
+  .organization-info-container {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--neutral-lighter);
+    padding-bottom: 2rem;
+  }
+
+  .organization-events-section {
+    &-title {
+      margin-bottom: 2rem;
+    }
+  }
+}
