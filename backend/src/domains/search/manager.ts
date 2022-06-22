@@ -4,21 +4,17 @@ import moment from 'moment'
 
 const search = async (where: any) => {
   defaultsDeep(where, {
-    between: {
-      from: moment.utc().format('YYYY-MM-DD'),
-      to: moment.utc().add(1, 'month').format('YYYY-MM-DD'),
-    },
     pagination: {
       skip: 0,
       limit: 10,
     },
   })
 
-  const query: any = {
-    startsAt: { $gte: moment.utc(where.between.from).toDate() },
-    endsAt: { $lte: moment.utc(where.between.to).toDate() },
-  }
+  const query: any = {}
 
+  if (where.startsAt)
+    query.startsAt = { $gte: moment.utc(where.startsAt).toDate() }
+  if (where.endsAt) query.endsAt = { $lte: moment.utc(where.endsAt).toDate() }
   if (where.category) query.category = where.category
   if (where.free) query.free = where.free === '1'
   if (where.city) query['address.city'] = where.city
