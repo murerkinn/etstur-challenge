@@ -35,7 +35,7 @@ const HomePage = () => {
               Some of the Past Events
             </h2>
 
-            <EventList events={pastEvents} hideHeader />
+            <EventList events={pastEvents} hideHeader hideNoData />
 
             <Link
               href={{

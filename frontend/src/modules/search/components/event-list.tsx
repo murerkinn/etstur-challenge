@@ -41,10 +41,15 @@ const EventListItem = ({ event }: EventListItemProps) => {
 type EventListProps = {
   events: Event[]
   hideHeader?: boolean
+  hideNoData?: boolean
 }
 
-const EventList = ({ events, hideHeader = false }: EventListProps) => {
-  if (events.length === 0)
+const EventList = ({
+  events,
+  hideHeader = false,
+  hideNoData = false,
+}: EventListProps) => {
+  if (events.length === 0 && !hideNoData)
     return (
       <div className="no-data">
         <img src="/images/no-data.svg" alt="No Data" />
