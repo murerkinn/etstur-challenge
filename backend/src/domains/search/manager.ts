@@ -49,8 +49,15 @@ const search = async (where: any) => {
   }
 }
 
+const getPopularEvents = async () => {
+  return Event.find({ startsAt: { $gte: moment.utc().toDate() } })
+    .sort({ soldTicketCount: -1 })
+    .limit(10)
+}
+
 const SearchManager = {
   search,
+  getPopularEvents,
 }
 
 export default SearchManager
