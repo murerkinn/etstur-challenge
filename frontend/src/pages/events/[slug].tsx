@@ -1,4 +1,6 @@
 import startCase from 'lodash/startCase'
+import moment from 'moment'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { BottomSheet } from 'react-spring-bottom-sheet'
@@ -90,6 +92,38 @@ const EventDetailsPage = () => {
                   eventId={event._id}
                   isFree={event.free}
                 />
+
+                <div className="organization-details">
+                  <h3 className="organization-details-title">
+                    Organizator of this event
+                  </h3>
+
+                  <div className="organization-info">
+                    <img
+                      src={event.organizator.photo.url}
+                      alt={event.organizator.photo.description}
+                    />
+
+                    <div>
+                      <Link
+                        href={`/organizator/${event.organizator.slug}`}
+                        passHref
+                      >
+                        <a>
+                          <h1 className="organization-name">
+                            {event.organizator.name}
+                          </h1>
+                        </a>
+                      </Link>
+
+                      <h4 className="organization-enrollment-date">
+                        {moment
+                          .utc(event.organizator.createdAt)
+                          .format('[Member since] MMM, YYYY')}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="tickets-card-container">

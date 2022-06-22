@@ -1,0 +1,31 @@
+.organization-info {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2rem;
+
+  @media screen and (min-width: $sm) {
+    gap: 4rem;
+    grid-template-columns: calc(40% - 2rem) calc(60% - 2rem);
+  }
+
+  img {
+    border-radius: 0.5rem;
+  }
+
+  & > div {
+    a {
+      text-decoration: underline;
+    }
+
+    .organization-enrollment-date {
+      color: var(--neutral);
+      font-weight: 500;
+    }
+
+    .organization-name {
+      font-size: 2.6rem;
+      line-height: 3rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

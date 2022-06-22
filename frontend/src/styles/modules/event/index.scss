@@ -11,6 +11,14 @@
     grid-template-columns: 100%;
     gap: 4rem;
 
+    .organization-details {
+      padding: 2rem 0;
+
+      &-title {
+        margin-bottom: 2rem;
+      }
+    }
+
     .tickets-card-container {
       display: none;
     }
