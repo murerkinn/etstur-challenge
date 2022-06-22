@@ -2,17 +2,19 @@ version: "3"
 
 services:
   mongo:
-    image: mongo
+    container_name: mongo
+    build:
+      context: mongo
+      dockerfile: Dockerfile
     ports:
       - 27017:27017
-    command: ["--replSet", "rs0", "--bind_ip_all"]
 
   backend:
     build:
       context: backend
       dockerfile: Dockerfile.local
     environment:
-      - MONGO_CONNECTION_STRING=mongodb://mongo:27017/evently
+      - MONGO_CONNECTION_STRING=mongodb://mongo:27017/evently?readPreference=primary&directConnection=true&ssl=false
       - HTTP_CORS_CREDENTIALS=true
     volumes:
       - ./backend/src:/app/src
@@ -24,6 +26,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.api.rule=Host(`api.evently.localhost`)"
       - "traefik.http.routers.api.entrypoints=web"
+    depends_on:
+      - mongo
 
   frontend:
     build:

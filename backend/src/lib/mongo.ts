@@ -4,7 +4,8 @@ import Debug from 'debug'
 const debug = Debug('app:lib:mongo')
 
 export const mongoConnectionString =
-  process.env.MONGO_CONNECTION_STRING || 'mongodb://localhost:27017/evently'
+  process.env.MONGO_CONNECTION_STRING ||
+  'mongodb://mongo:27017/evently?readPreference=primary&directConnection=true&ssl=false'
 
 const init = async () => {
   try {
