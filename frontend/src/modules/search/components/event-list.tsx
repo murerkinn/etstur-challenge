@@ -23,7 +23,9 @@ const EventListItem = ({ event }: EventListItemProps) => {
       </div>
 
       <div className="event-list-item-cell organization-cell">
-        <h3>{event.organizatorName}</h3>
+        <Link href={`/organizations/${event.organizator.slug}`} passHref>
+          <a>{event.organizatorName}</a>
+        </Link>
       </div>
 
       <div className="event-list-item-cell dates-cell">
