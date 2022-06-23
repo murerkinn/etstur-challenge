@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "17c03330-d45d-464e-9132-a15ff6b8f752",
+		"name": "event.ly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17888095"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "get logged in user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/account",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/account/session",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login guest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"guest@evently.com\",\n\t\"password\": \"Asdf123*\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/session",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login partner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"partner@evently.com\",\n\t\"password\": \"Asdf123*\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/session",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create partner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Partner First Name\",\n\t\"lastName\": \"Partner Last Name\",\n\t\"email\": \"partner@evently.com\",\n\t\"password\": \"Asdf123*\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/partner",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"partner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create guest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Guest First Name\",\n\t\"lastName\": \"Guest Last Name\",\n\t\"email\": \"guest@evently.com\",\n\t\"password\": \"Asdf123*\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/partner",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"partner"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "event",
+			"item": [
+				{
+					"name": "get event by slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/event/:slug",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"event",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "organization",
+			"item": [
+				{
+					"name": "get organization by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/organization/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"organization",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create organization",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/organization",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"organization"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "search",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/search",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get popular events",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fixture",
+			"item": [
+				{
+					"name": "generate mock data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/fixture",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"fixture"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "get all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/category",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ticket",
+			"item": [
+				{
+					"name": "get tickets of an event",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:4000",
+			"type": "string"
+		}
+	]
+}
